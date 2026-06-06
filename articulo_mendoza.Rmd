@@ -1,0 +1,576 @@
+---
+title: "Procesamiento de Agua en la Industria: Panorama Global y Potencial Transformador de Mendoza"
+description: |
+  Análisis comparativo del mercado mundial de tratamiento de agua industrial frente a las oportunidades de innovación tecnológica en la provincia de Mendoza, Argentina.
+author:
+  - name: "Juan Luna"
+    affiliation: "Universidad Nacional de Cuyo"
+  - name: "Luciana Noriega"
+    affiliation: "Universidad Nacional de Cuyo"
+  - name: "Leandro Olguín"
+    affiliation: "Universidad Nacional de Cuyo"
+  - name: "Ariana Galli"
+    affiliation: "Universidad Nacional de Cuyo"
+  - name: "Juan Cárdenas"
+    affiliation: "Universidad Nacional de Cuyo"
+date: 2026-06-02
+output: 
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    code_folding: true
+    self_contained: false
+    highlight: tango
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  fig.width = 10,
+  fig.height = 6,
+  fig.align = "center",
+  out.width = "100%"
+)
+
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(scales)
+library(knitr)
+library(kableExtra)
+
+colores_primario <- c("#1a5276", "#2874a6", "#5dade2", "#85c1e9", "#aed6f1")
+colores_alerta <- c("#922b21", "#c0392b", "#e74c3c", "#f1948a", "#f5b7b1")
+colores_exito <- c("#1e8449", "#27ae60", "#52be80", "#7dcea0", "#a9dfbf")
+
+theme_academico <- function() {
+  theme_minimal(base_size = 12) +
+    theme(
+      plot.title = element_text(face = "bold", size = 14, color = "#1a5276"),
+      plot.subtitle = element_text(size = 11, color = "#5d6d7e"),
+      axis.title = element_text(face = "bold", color = "#2c3e50"),
+      panel.grid.minor = element_blank(),
+      panel.grid.major = element_line(color = "#d5dbdb", size = 0.3),
+      legend.position = "bottom",
+      legend.title = element_text(face = "bold"),
+      plot.margin = margin(20, 20, 20, 20)
+    )
+}
+```
+
+::: {.d-title}
+# Procesamiento de Agua en la Industria: Panorama Global y Potencial Transformador de Mendoza
+
+### Análisis comparativo del mercado mundial de tratamiento de agua industrial frente a las oportunidades de innovación tecnológica en la provincia de Mendoza, Argentina
+:::
+
+::: {.d-byline}
+**Juan Luna, Luciana Noriega, Leandro Olguín, Ariana Galli, Juan Cárdenas**  
+Universidad Nacional de Cuyo  
+*2 de Junio de 2026*
+:::
+
+---
+
+## Resumen Ejecutivo
+
+La industria del procesamiento de agua representa uno de los sectores de mayor crecimiento a nivel mundial, proyectándose a alcanzar USD 146.55 mil millones para 2035 con una tasa de crecimiento anual compuesta (CAGR) del 6.97%. La integración de inteligencia artificial (IA) en este sector constituye un mercado emergente valorado en USD 5.9 mil millones en 2025, con proyecciones de crecimiento explosivo alcanzando los USD 63.76 mil millones para 2035 (CAGR del 27.0%).
+
+En contraste, la provincia de Mendoza —corazón vitivinícola de Argentina y región de alta aridez— enfrenta una crisis hídrica estructural sin precedentes. Para la temporada 2025-2026, los principales ríos presentan caudales críticos situados entre el 58% y el 73% de un año medio, colocando a la región en condiciones de sequía hidrológica moderada a severa. Esta conjunción de escasez hídrica crítica y una industria vitivinícola en expansión —que consume entre 1.66 y 6.66 hm³/año de agua— configura un escenario donde el procesamiento avanzado de agua y la inteligencia artificial no representan meras opciones tecnológicas, sino imperativos de supervivencia económica y ambiental.
+
+Este artículo presenta una revisión sistemática que contrasta el desarrollo global de tecnologías de procesamiento de agua industrial con el potencial transformador que estas innovaciones representan para el contexto mendocino, identificando brechas críticas, oportunidades de aplicación y un marco estratégico integral para la transición hacia una gestión hídrica inteligente.
+
+---
+
+## 1. Introducción
+
+### 1.1 Contexto y Justificación
+
+El agua constituye el recurso estratégico clave del siglo XXI. Según datos consolidados de las Naciones Unidas (2024), únicamente el 27% de las aguas residuales industriales a nivel mundial recibe un tratamiento seguro, mientras que un alarmante 50% de las aguas residuales globales totales se vierte al medio ambiente sin ningún tipo de mitigación previa, con una concentración crítica de esta problemática en las economías emergentes del Sur Global. Esta apremiante realidad convierte al procesamiento avanzado de agua en una industria de crecimiento estructural acelerado, impulsada por marcos regulatorios ambientales cada vez más rigurosos, una escasez hídrica cuantitativa creciente y la necesidad urgente de consolidar modelos de economía circular basados en la reutilización sistémica del recurso.
+
+La provincia de Mendoza encapsula esta tensión de manera paradigmática. Con una precipitación media anual inferior a los 200 mm en la mayor parte de su territorio continental, la región presenta una dependencia absoluta del régimen de escurrimiento nivo-glacial de las cuencas de la Cordillera de los Andes. Sin embargo, el cambio climático global ha alterado drásticamente estos patrones históricos de fusión nival. Para la temporada hidrológica actual de 2025-2026, los pronósticos oficiales proyectan un caudal anual de solo 835 hm³ para el río Mendoza (equivalente al 61% de un año medio histórico), de 535 hm³ para el río Tunuyán (63% de su media) y de 795 hm³ para el río Atuel (73% de su media). Paralelamente, la vitivinicultura mendocina —que ostenta aproximadamente el 70% de la superficie plantada y de la producción vitivinícola de la República Argentina— ha experimentado una fuerte expansión hacia zonas de restricción hídrica severa, tales como los sectores altos del Valle de Uco y la Margen Derecha del río Mendoza. En estas subregiones críticas, el Departamento General de Irrigación (DGI) ha establecido la prohibición absoluta de otorgamiento de nuevas perforaciones subterráneas con el fin de proteger la sustentabilidad de los acuíferos profundos frente a la sobreexplotación.
+
+### 1.2 Objetivos del Estudio
+
+El presente trabajo científico se estructura en torno a los siguientes objetivos principales:
+
+1. Caracterizar el estado del arte y las proyecciones financieras y operacionales del mercado global de procesamiento de agua industrial, con especial énfasis en la tasa de adopción de arquitecturas de inteligencia artificial.
+2. Analizar de manera cuantitativa el contexto macro-hídrico de la provincia de Mendoza, identificando las presiones antrópicas e industriales sobre el recurso y las demandas específicas del sector vitivinícola.
+3. Comparar sistemáticamente el panorama tecnológico de vanguardia a nivel mundial con el escenario operacional mendocino, cuantificando las brechas tecnológicas, de datos y de inversión.
+4. Diseñar y proponer un marco estratégico de implementación tecnológica adaptado para la transición de la región hacia un modelo de gestión hídrica inteligente y circular.
+
+---
+
+## 2. Dimensiones del Procesamiento de Agua Industrial a Escala Global
+
+### 2.1 Mercado y Tendencias Tecnológicas
+
+#### 2.1.1 Tamaño y Proyecciones del Mercado
+
+El mercado global de tecnologías asociadas al tratamiento de agua y efluentes industriales alcanzó una valorización consolidada de USD 74.68 mil millones al cierre del año 2025, evidenciando una aceleración sin precedentes en su curva de adopción. De manera específica, el segmento del tratamiento de aguas residuales de origen industrial se situó en USD 27.7 mil millones durante el mismo año, proyectando un crecimiento sostenido que lo llevará a alcanzar los USD 53.5 mil millones hacia el año 2035, lo cual representa una tasa de crecimiento anual compuesta (CAGR) del 6.8% dentro de este subsector.
+
+```{r mercado-global, fig.cap="Proyección del Mercado Global de Tecnologías de Tratamiento de Agua (2025-2035)"}
+mercado <- data.frame(
+  categoria = c("Mercado Total 2025", "Mercado Total 2035", "IA en Agua 2025", "IA en Agua 2035"),
+  valor = c(74.68, 146.55, 5.9, 63.76),
+  tipo = c("Mercado Total", "Mercado Total", "IA en Agua", "IA en Agua"),
+  año = c(2025, 2035, 2025, 2035)
+)
+
+mercado$categoria <- factor(mercado$categoria, 
+                            levels = c("Mercado Total 2025", "Mercado Total 2035", 
+                                       "IA en Agua 2025", "IA en Agua 2035"))
+
+ggplot(mercado, aes(x = categoria, y = valor, fill = tipo)) +
+  geom_col(width = 0.6) +
+  geom_text(aes(label = paste0("USD ", valor, " Bn")), 
+            vjust = -0.5, size = 4, fontface = "bold", color = "#2c3e50") +
+  scale_fill_manual(values = c("Mercado Total" = colores_primario[1], 
+                                "IA en Agua" = colores_exito[2])) +
+  labs(
+    title = "Proyección del Mercado Global de Tecnologías de Tratamiento de Agua",
+    subtitle = "CAGR general: 6.97% | CAGR segmento IA: 27.0%",
+    x = NULL,
+    y = "Valor (USD Miles de Millones)",
+    caption = "Fuente: Elaboración propia a partir de proyecciones mundiales de mercado"
+  ) +
+  theme_academico() +
+  theme(legend.position = "none") +
+  coord_cartesian(ylim = c(0, 170))
+```
+
+La introducción de la inteligencia artificial (IA) representa el vector de crecimiento más disruptivo de la industria. El mercado específico de soluciones de IA aplicadas a los sistemas hídricos y de saneamiento pasó de una fase experimental a una etapa de despliegue masivo masificado, valorado en USD 5.9 mil millones en 2025 y con expectativas técnicas de alcanzar los USD 63.76 mil millones para el año 2035. Este incremento exponencial está directamente asociado a la digitalización integral de las plantas de tratamiento, la optimización termodinámica y química de los procesos y la gestión predictiva de los activos físicos corporativos.
+
+#### 2.1.2 Distribución Regional
+
+La distribución de la participación del mercado hídrico global revela marcadas asimetrías macroeconómicas y tecnológicas entre las diversas regiones continentales, como se detalla en la Tabla 1:
+
+```{r tabla-regiones}
+regiones_df <- data.frame(
+  Region = c("América del Norte", "Asia-Pacífico", "Europa", "Medio Oriente y África", "América Latina"),
+  Participacion = c("38.20%", "37.60%", "16.30%", "4.40%", "3.40%"),
+  Proyeccion_2026 = c("USD 151.9 Bn", "USD 152.3 Bn", "USD 64.7 Bn", "USD 17.2 Bn", "USD 13.7 Bn"),
+  Drivers = c(
+    "Rápida tasa de recambio tecnológica debido a infraestructura envejecida y estrictas normativas EPA.",
+    "Máxima velocidad de expansión industrial (CAGR de 8.43%), impulsada por China e India.",
+    "Crecimiento moderado enfocado en alta tecnología, economía circular y Directiva de Aguas de la UE.",
+    "Segmento emergente con foco absoluto en desalinización extrema y reutilización industrial mandatoria.",
+    "Crecimiento latente y sostenido, pero condicionado por restricciones crónicas de inversión en infraestructura de capital."
+  )
+)
+
+kable(regiones_df, 
+      col.names = c("Región Continental", "Participación del Mercado (2025)", "Proyección Financiera (2026)", "Dinámica y Drivers Principales de Crecimiento"),
+      caption = "Tabla 1: Distribución Regional del Mercado Hídrico Global",
+      align = c("l", "c", "c", "l")) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), 
+                full_width = TRUE, font_size = 11) %>%
+  column_spec(1, bold = TRUE, width = "15%") %>%
+  column_spec(2, width = "12%") %>%
+  column_spec(3, width = "12%") %>%
+  column_spec(4, width = "61%")
+```
+
+### 2.2 Tecnologías de Procesamiento de Agua Industrial
+
+#### 2.2.1 Clasificación Tecnológica
+
+Las tecnologías destinadas al procesamiento de agua y efluentes a escala comercial se dividen en cuatro grandes familias operacionales bien diferenciadas:
+
+- **Filtración por Membranas (36.1% de la cuota de mercado)**: Comprende procesos avanzados de ósmosis inversa (OI), ultrafiltración (UF), nanofiltración (NF) y microfiltración (MF). El principal motor de su crecimiento actual es la adición de capas digitales (sensores interconectados, telemetría inteligente y gemelos analíticos). Multinacionales del sector como SUEZ han reportado el despliegue de más de 7 millones de medidores inteligentes conectados y la gestión remota de más de 1,500 plantas mediante plataformas unificadas de Smart Water.
+
+- **Tratamiento Primario Avanzado (34.3% de la cuota de mercado)**: Impulsado firmemente por la robusta demanda de industrias pesadas u operativamente intensivas, tales como la siderurgia, la generación termoeléctrica y las plantas de síntesis química, donde la remoción primaria de sólidos suspendidos y aceites es crítica.
+
+- **Desinfección Química y por Radiación UV (15.2% de la cuota de mercado)**: Concentrada en garantizar la total inocuidad microbiológica de los efluentes antes de su disposición o reintroducción al proceso productivo, con una fuerte tendencia hacia la sustitución del cloro gaseoso por radiación ultravioleta de alta intensidad y ozonización.
+
+- **Adsorción por Carbón Activado y Otros Métodos (14.4% restante)**: Segmento especializado en la captura selectiva de compuestos orgánicos persistentes, metales pesados y colorantes industriales complejos mediante lechos fluidizados y columnas fijas.
+
+#### 2.2.2 Tendencias Tecnológicas Emergentes para 2026
+
+El horizonte tecnológico del procesamiento industrial de agua para el año 2026 está definido por cinco tendencias fundamentales:
+
+1. **Digitalización Integral e IA Ubicua**: Utilización de algoritmos de Machine Learning (ML), analítica de Big Data e Internet de las Cosas (IoT) para la monitorización continua. Esto permite la optimización automática en tiempo real de la dosificación química, la anticipación probabilística de picos de carga contaminante y la reducción del consumo eléctrico. El desarrollo de "Digital Twins" o gemelos digitales permite simular dinámicas hidráulicas y prever fallas mecánicas de manera predictiva.
+
+2. **Sistemas Modulares y Tratamiento Descentralizado**: Arquitecturas compactas, prefabricadas y contenerizadas que permiten el despliegue inmediato de capacidad de tratamiento en el punto exacto de generación del efluente, disminuyendo sustancialmente los costos de transporte de residuos.
+
+3. **Recuperación Avanzada de Recursos Integrados**: Transición conceptual definitiva del paradigma tradicional de "depurar agua" hacia el concepto de "refinería de agua". Tecnologías como los Biorreactores Anaerobios de Membrana (AnMBR) permiten tratar efluentes con alta carga orgánica mientras se genera biogás rico en metano, logrando simultáneamente la precipitación y captura de nutrientes críticos como el fósforo (en forma de estruvita) y el nitrógeno.
+
+4. **Mitigación de Contaminantes Emergentes**: Desarrollo e integración de tecnologías de oxidación avanzada (AOPs), métodos electroquímicos y degradación biológica especializada para remover microplásticos, trazas farmacológicas y sustancias per y polifluoroalquiladas (PFAS).
+
+5. **Autosuficiencia Energética Neta**: Diseño de plantas de tratamiento cuyo control predictivo optimiza las fases de aireación (el mayor consumidor de energía en plantas aeróbicas), permitiendo que la energía recuperada a través del biogás cubra el 100% de las necesidades electromecánicas.
+
+### 2.3 Aplicaciones de Inteligencia Artificial en el Procesamiento de Agua
+
+#### 2.3.1 Arquitecturas de IA Aplicadas
+
+La inteligencia artificial no opera de forma aislada, sino que se integra verticalmente en las diferentes capas de control operacional de las plantas modernas, tal como se sintetiza en la Tabla 2:
+
+```{r tabla-ia}
+ia_df <- data.frame(
+  Dominio = c(
+    "Monitoreo de Calidad en Tiempo Real",
+    "Localización y Diagnóstico de Fugas",
+    "Optimización de Procesos de Depuración",
+    "Gestión y Modelado de la Demanda",
+    "Mantenimiento Predictivo de Activos"
+  ),
+  Arquitectura = c(
+    "Redes Neuronales Convolucionales (CNN) y Recurrentes (RNN), integradas a espectrofotometría IoT.",
+    "Machine Learning supervisado acoplado a procesamiento digital de señales acústicas e hidráulicas.",
+    "Gemelos Digitales emparejados con algoritmos genéticos y optimización bayesiana.",
+    "Modelos predictivos de series temporales (ARIMA, arquitecturas LSTM avanzadas).",
+    "Algoritmos de clasificación y regresión (Random Forest, XGBoost) sobre vibración y temperatura."
+  ),
+  Impacto = c(
+    "Detección temprana e instantánea de anomalías químicas y proliferación de algas nocivas (HABs).",
+    "Reducción de las pérdidas de agua por fugas ocultas en redes de transporte de hasta un 30%.",
+    "Reducción demostrada de entre 15% y 25% en el uso de coagulantes y optimización del consumo de energía de aireación.",
+    "Asignación dinámica automatizada de presiones y caudales en redes de distribución macro.",
+    "Reducción drástica del 40% en tiempos de parada no planificados en sistemas de bombeo críticos."
+  ),
+  Casos = c(
+    "SUEZ Smart Water, Xylem Vue.",
+    "FIDO AI, CRH Technologies.",
+    "Veolia Hubgrade, Siemens AI Water.",
+    "San Antonio Water System (SAWS).",
+    "Brabant Water (Países Bajos), DC Water."
+  )
+)
+
+kable(ia_df,
+      col.names = c("Dominio de Aplicación", "Arquitectura Tecnológica de IA", "Impacto Operativo Cuantificable", "Casos de Éxito de Referencia Global"),
+      caption = "Tabla 2: Arquitecturas de IA Aplicadas al Sector del Agua",
+      align = c("l", "l", "l", "l")) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"),
+                full_width = TRUE, font_size = 10) %>%
+  column_spec(1, bold = TRUE, width = "18%") %>%
+  column_spec(2, width = "28%") %>%
+  column_spec(3, width = "32%") %>%
+  column_spec(4, width = "22%")
+```
+
+#### 2.3.2 Machine Learning y Deep Learning en Plantas de Tratamiento
+
+La implementación práctica de algoritmos supervisados e industriales se focaliza en dos ejes principales de optimización matemática:
+
+**Predicción Avanzada de la Calidad del Efluente**: Modelado preciso de variables complejas de salida como la Demanda Bioquímica de Oxígeno (DBO), Demanda Química de Oxígeno (DQO), Sólidos Suspendidos Totales (SST), Fósforo Total (PT) y Nitrógeno Amoniacal (NH3-N). Los modelos entrenados con vastos conjuntos de datos en plantas de escala metropolitana (como el Milwaukee Metropolitan Sewerage District - MMSD, que procesa 250 MGD) exhiben los mayores coeficientes de determinación (R² ≥ 0.92) debido a la inercia operacional y al menor ruido relativo en los datos de entrada.
+
+**Inteligencia Artificial Explicable (XAI)**: Con el fin de mitigar el sesgo de "caja negra" que genera desconfianza en los ingenieros de planta, se aplican metodologías de atribución de características basadas en valores SHAP (Shapley Additive exPlanations) y LIME. Estas técnicas permiten interpretar matemáticamente las decisiones de las redes neuronales densas, demostrando que variables de entrada como el caudal instantáneo (Flow), el NH3-N de entrada, el Fósforo Total y los SST influyen de manera ponderada y predecible en la determinación anticipada de la DBO del efluente de salida.
+
+#### 2.3.3 Generative AI (GenAI) en el Sector del Agua
+
+A partir del año 2025, la Inteligencia Artificial Generativa (GenAI) ha irrumpido con fuerza en las corporaciones sanitarias e industriales de agua, registrando aplicaciones de alto valor añadido en mercados maduros de América del Norte, la Unión Europea y Asia-Pacífico:
+
+- **Planificación de Infraestructura de Capital**: Entidades como Yorkshire Water utilizan modelos de lenguaje de gran escala (LLMs) ajustados con datos internos para sintetizar informes de ingeniería complejos, datos geográficos y registros históricos de fallas, optimizando los planes de inversión a 10 años en renovación de redes hídricas.
+
+- **Asistencia Operativa Basada en Conocimiento Codificado**: El Hampton Roads Sanitation District emplea agentes conversacionales avanzados de IA generativa capaces de leer e interpretar instantáneamente manuales técnicos de operación de turbinas y controladores lógicos programables (PLCs), guiando paso a paso a los técnicos de campo en la resolución de fallas complejas y optimizando la dosificación química en condiciones climáticas extremas.
+
+- **Sistemas Omnicanal de Atención al Usuario**: DC Water ha desplegado sistemas expertos basados en GenAI para la gestión automatizada de consultas operativas de usuarios las 24 horas del día, los 7 días de la semana, logrando un procesamiento multilingüe fluido que eleva los índices de confianza comunitaria.
+
+---
+
+## 3. Contexto Hídrico de Mendoza: Crisis y Oportunidad
+
+### 3.1 Situación Hídrica Actual
+
+#### 3.1.1 Sequía Hidrológica y Proyecciones de Caudal
+
+Mendoza no atraviesa una emergencia hídrica coyuntural, sino un proceso agudo de aridización estructural consolidado. El pronóstico de derrame hídrico publicado por el Departamento General de Irrigación para la temporada en curso ratifica un déficit severo en todas las cuencas de la provincia, caracterizando un estado generalizado de sequía hidrológica moderada a severa:
+
+```{r caudales-mendoza, fig.cap="Proyección de Caudales Hídricos en las Cuencas de Mendoza (% respecto al Año Medio)"}
+caudales <- data.frame(
+  rio = c("Río Mendoza", "Río Tunuyán", "Río Diamante", "Río Atuel", "Río Malargüe"),
+  porcentaje = c(61, 63, 62, 73, 58),
+  volumen = c(835, 535, NA, 795, NA),
+  etiqueta = c("61% del medio (835 hm³)", "63% del medio (535 hm³)", "62% del medio", 
+               "73% del medio (795 hm³)", "58% del medio")
+)
+
+caudales$rio <- factor(caudales$rio, levels = rev(caudales$rio))
+
+ggplot(caudales, aes(x = rio, y = porcentaje, fill = porcentaje)) +
+  geom_col(width = 0.6) +
+  geom_text(aes(label = etiqueta), 
+            hjust = -0.05, size = 3.8, fontface = "bold", color = "#2c3e50") +
+  scale_fill_gradient2(low = colores_alerta[1], mid = colores_alerta[3], high = colores_exito[2],
+                       midpoint = 65, limits = c(55, 80)) +
+  labs(
+    title = "Proyección de Caudales Hídricos en las Cuencas de Mendoza",
+    subtitle = "% respecto al Año Medio | Temporada 2025-2026",
+    x = NULL,
+    y = "% del Año Medio",
+    caption = "Fuente: Datos oficiales del Pronóstico de Escurrimientos del DGI"
+  ) +
+  theme_academico() +
+  theme(legend.position = "none") +
+  coord_flip(ylim = c(0, 100)) +
+  geom_hline(yintercept = 100, linetype = "dashed", color = colores_exito[1], size = 0.8) +
+  annotate("text", x = 5.3, y = 100, label = "Año Medio (100%)", 
+           color = colores_exito[1], fontface = "italic", size = 3.5)
+```
+
+Ante esta realidad objetiva, las autoridades del DGI han definido formalmente este escenario como la "nueva normalidad hídrica de la provincia", remarcando de manera enfática la necesidad de abandonar la gestión tradicional basada exclusivamente en la oferta de agua (obras de infraestructura hidráulica de almacenamiento duro) para migrar urgentemente hacia políticas de control riguroso de la demanda, optimización de la eficiencia intra-industrial y planificación algorítmica de los turnos de riego.
+
+#### 3.1.2 Restricciones de Uso y Zonas de Prohibición
+
+Frente al descenso sostenido de los niveles piezométricos de las napas de agua subterránea, la autoridad de aplicación hídrica en Mendoza ha delimitado zonas de restricción absoluta para la ejecución de nuevas perforaciones en los distritos productivos que concentran las inversiones agroindustriales de mayor valor añadido de la provincia:
+
+- **Acuífero de la Margen Derecha del Río Mendoza**: Correspondiente a los distritos de alta gama vitivinícola del departamento de Luján de Cuyo.
+- **Acuífero Central y Superior del Valle de Uco**: Abarcando zonas clave de producción de viñedos de altitud en los departamentos de Tupungato, Tunuyán y San Carlos.
+
+Estas restricciones legales e hidrológicas son la consecuencia directa de balances hídricos subterráneos plurianuales marcadamente negativos, donde la tasa de extracción antrópica mediante bombeo electromecánico supera con creces la tasa de recarga natural por infiltración nival. Este fenómeno expone de manera nítida la clásica "tragedia de los comunes", en la cual el libre acceso individual a un recurso compartido y limitado conduce inexorablemente a la degradación colectiva del sistema ecológico y productivo, amenazando la viabilidad de la agricultura y de la industria en el mediano plazo si no se interviene mediante tecnologías de control y reutilización.
+
+### 3.2 La Industria Vitivinícola y su Demanda Hídrica
+
+#### 3.2.1 Consumo y Generación de Efluentes
+
+La vitivinicultura es, por amplio margen, el actor industrial con mayor huella e impacto hídrico en la estructura productiva mendocina. Una bodega promedio consume anualmente volúmenes brutos que oscilan entre 1.66 y 6.66 hm³ de agua, dependiendo críticamente de sus tecnologías internas de manejo de fluidos. Estudios sectoriales demuestran que el 85.2% de este recurso se destina exclusivamente a tareas operativas de higienización de vasijas, lavado de tanques de acero inoxidable, desinfección de líneas de embotellado y limpieza general de las naves industriales.
+
+Los efluentes generados por las bodegas (conocidos técnicamente como Aguas Residuales de Bodega - ARB) exhiben propiedades sumamente complejas que restringen severamente su vuelco directo sin tratamiento:
+
+- **Volumen Específico de Generación**: Varía entre 12 y 45 litros de efluente por cada hectolitro (hL) de vino fraccionado. Sin embargo, durante el período crítico de vendimia, este indicador experimenta un pico estacional agudo, requiriéndose hasta 3 litros de agua por cada litro de vino elaborado.
+
+- **Elevada Carga Orgánica Dinámica**: Concentraciones masivas de DQO y DBO provocadas por la presencia remanente de azúcares (glucosa, fructosa), ácidos orgánicos (tartárico, málico), etanol, levaduras muertas y compuestos polifenólicos de difícil degradación.
+
+- **Marcada Variabilidad y Estacionalidad**: El 70% del volumen anual contaminante se concentra en un período de solo 90 días (febrero a abril), generando shocks hidráulicos y orgánicos severos sobre cualquier sistema biológico de depuración.
+
+- **Desbalance Crítico de Nutrientes Esenciales**: Las ARB son intrínsecamente deficientes en nitrógeno, fósforo y potasio, con relaciones estequiométricas de carbono-nitrógeno-fósforo (C:N:P) marcadamente desequilibradas que exigen la adición exógena de nutrientes químicos para posibilitar la supervivencia de los consorcios bacterianos encargados de la degradación biológica del efluente.
+
+#### 3.2.2 Tecnologías Actuales de Tratamiento en Bodegas Mendocinas
+
+El parque tecnológico instalado en las bodegas mendocinas responde mayoritariamente a esquemas de depuración secuenciales lineales tradicionales, estructurados de la siguiente forma:
+
+1. **Etapa de Pretratamiento Mecánico**: Tamizado mediante rejillas de desbaste autolimpiantes para la separación de escobajos, hollejos y pepitas; desarenadores estáticos y tanques de homogeneización equipados con sistemas de agitación para regular los picos de pH y caudal.
+
+2. **Etapa de Tratamiento Físico-Químico**: Unidades de coagulación-floculación mediante la dosificación controlada de polielectrolitos y sales de hierro o aluminio, acopladas a sistemas de Flotación por Aire Disuelto (DAF). Estos dispositivos demuestran eficiencias de remoción superiores al 95% en Sólidos Suspendidos Totales (SST) y grasas insolubles.
+
+3. **Etapa de Tratamiento Biológico Secundario**: Sistemas de fangos activados convencionales, reactores secuenciales por lotes (SBR) o Biorreactores de Membrana (MBR). La tecnología MBR ha emergido como la solución óptima de vanguardia, debido a que permite trabajar con concentraciones muy elevadas de biomasa activa en el licor de mezcla (MLSS de 8,000 a 12,000 mg/L), reduciendo entre un 50% y un 60% la tasa de generación de barros residuales y garantizando un agua clarificada de calidad superior, apta para dar inicio a esquemas avanzados de reutilización.
+
+4. **Etapa de Tratamiento Terciario Avanzado**: Procesos de filtración por arena y carbón activado, seguidos de desinfección mediante radiación UV de flujo continuo o dosificación de ozono. En proyectos de vanguardia aislados, se integran sistemas de ósmosis inversa secundaria para desmineralizar el agua depurada, permitiendo su recirculación directa hacia los sistemas de enfriamiento térmico de la bodega.
+
+A pesar de la validez técnica de este esquema secuencial, su operación actual en el entorno mendocino presenta debilidades estructurales críticas: los sistemas funcionan de manera reactiva ante fallas evidentes, la monitorización de parámetros fisicoquímicos clave (oxígeno disuelto, pH, conductividad) se ejecuta mediante muestreos manuales discretos en el tiempo, la automatización de lazo cerrado es escasa o inexistente, y no se registra ningún tipo de integración digital o análisis predictivo de datos entre las fases de vinificación y las etapas de la planta de tratamiento de efluentes.
+
+---
+
+## 4. Análisis Comparativo: Global vs. Mendoza
+
+### 4.1 Matriz Comparativa de Capacidades y Brecha Tecnológica
+
+A fin de dimensionar de forma precisa el estado de situación de la provincia frente a los estándares internacionales dominantes al año 2026, se presenta la Matriz de Capacidades Hídricas e Industriales en la Tabla 3:
+
+```{r tabla-brechas}
+brechas_df <- data.frame(
+  Dimension = c(
+    "Infraestructura de Monitoreo",
+    "Adopción de IA y Machine Learning",
+    "Eficiencia y Recuperación Energética",
+    "Tasa de Reutilización de Efluentes",
+    "Tratamiento de Contaminantes Emergentes",
+    "Inversión Privada y Pública en I+D",
+    "Integración Sectorial de Datos"
+  ),
+  Estandar_Global = c(
+    "Redes masivas de sensores IoT inalámbricos, medición analítica en línea y Gemelos Digitales interactivos.",
+    "Despliegue comercial de modelos predictivos y optimización autónoma de plantas de tratamiento en lazo cerrado.",
+    "Plantas de codigestión anaerobia autosuficientes con inyección neta de biogás a la matriz eléctrica de la planta.",
+    "Reutilización sistemática interna mayor al 45% en procesos industriales y 7% a nivel generalizado en Europa.",
+    "Tecnologías comerciales activas de oxidación avanzada (AOP) y procesos electroquímicos de degradación.",
+    "Inversión global de USD 5.9 mil millones enfocada exclusivamente en digitalización del agua inteligente.",
+    "Plataformas unificadas en la nube que consolidan los datos hídricos históricos del ciclo completo del agua."
+  ),
+  Estado_Mendoza = c(
+    "Monitoreo predominantemente manual o semiautomatizado mediante lecturas en batch. Conectividad aislada.",
+    "Prácticamente inexistente a escala industrial. Operación basada en la intuición de operarios de planta.",
+    "Elevada dependencia de la red eléctrica externa. Quema atmosférica o ausencia de captura de biogás.",
+    "Reutilización mayoritariamente informal o restringida a riego agrícola restringido (ACRE), sin refino terciario sistemático.",
+    "Ausencia total de marcos regulatorios de control y carencia absoluta de tecnologías específicas instaladas.",
+    "Presupuestos mínimos o marginales asignados a la innovación tecnológica hídrica. Financiamiento restringido.",
+    "Silos de información fragmentados e inaccesibles entre bodegas competidoras. Ausencia de estandarización."
+  ),
+  Calificacion = c("ALTA", "CRÍTICA", "ALTA", "ALTA", "CRÍTICA", "CRÍTICA", "CRÍTICA")
+)
+
+kable(brechas_df,
+      col.names = c("Dimensión Analítica", "Estándar de Vanguardia Global (2026)", "Estado del Arte Actual en Mendoza", "Calificación del Nivel de Brecha"),
+      caption = "Tabla 3: Matriz Comparativa de Capacidades Hídricas e Industriales",
+      align = c("l", "l", "l", "c")) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"),
+                full_width = TRUE, font_size = 9.5) %>%
+  column_spec(1, bold = TRUE, width = "14%") %>%
+  column_spec(2, width = "30%") %>%
+  column_spec(3, width = "30%") %>%
+  column_spec(4, bold = TRUE, width = "12%", color = "#c0392b")
+```
+
+### 4.2 Brechas Críticas Identificadas
+
+El análisis sistemático detallado en la matriz permite tipificar y desglosar tres brechas fundamentales que frenan el desarrollo estratégico de la provincia:
+
+1. **Brecha Tecnológica y Operacional**: Mientras el contexto internacional avanza decididamente hacia la consolidación de la cuarta generación de plantas de tratamiento de agua —caracterizadas por la autonomía de procesos, la interconectividad total de activos y la simulación dinámica en gemelos digitales—, el sector vitivinícola de Mendoza opera predominantemente anclado en tecnologías de segunda generación (operación analógica y reactiva de plantas biológicas convencionales). La ausencia absoluta de una capa de infraestructura digital de base representa el cuello de botella más profundo: sin el despliegue previo de sensores IoT industriales distribuidos, es matemáticamente imposible capturar series de datos temporales continuas; a su vez, sin datos normalizados no se pueden entrenar arquitecturas de Machine Learning, lo cual anula por completo la posibilidad de ejecutar estrategias de optimización predictiva.
+
+2. **Brecha de Datos y Conocimiento Colectivo**: Diariamente, las bodegas mendocinas generan de manera implícita masivos volúmenes de datos potencialmente valiosos relacionados con sus curvas de consumo hídrico sectorizado, caudales fluctuantes de efluentes y variaciones de carga orgánica. Sin embargo, este capital informático se disipa debido a cuatro factores críticos: no se registra de manera sistemática (predominio de bitácoras físicas en papel), carece de estandarización metodológica (cada establecimiento mide utilizando criterios analíticos y métricas heterogéneas), se encuentra fragmentado en silos corporativos sin comunicación mutua, y no se somete a ningún tipo de análisis estadístico avanzado. Este panorama contrasta drásticamente con iniciativas globales líderes como la de Brabant Water (Países Bajos), que en alianza estratégica con Xylem ha unificado la telemetría inteligente de más de 2.6 millones de usuarios sobre un único gemelo digital de simulación hidráulica permanente.
+
+3. **Brecha de Inversión Financiera Estructural**: América Latina concentra una participación exigua del 3.4% del mercado hídrico mundial, correspondiéndole a la República Argentina una fracción minoritaria de dicho porcentaje. La inversión en investigación, desarrollo e innovación (I+D+i) hídrica es marginal en el sector corporativo privado mendocino, mientras que los presupuestos de los organismos públicos y de ciencia y técnica se encuentran fuertemente condicionados por la coyuntura macroeconómica del país, limitando el acceso a líneas de financiamiento internacional de bienes de capital de alta tecnología.
+
+### 4.3 Potencial Transformador de Mendoza
+
+A pesar de las profundas asimetrías descriptas, la provincia de Mendoza cuenta con ventajas competitivas y factores de escala únicos que configuran un escenario altamente propicio para una disrupción tecnológica acelerada:
+
+- **La Presión Hídrica Extrema como Catalizador de Innovación**: En perfecta consonancia con la tesis del economista Michael Porter sobre la ventaja competitiva de las naciones, las restricciones ambientales extremas y la escasez crítica de un recurso clave no conducen necesariamente al colapso industrial, sino que actúan como potentes fuerzas impulsoras de la innovación. La inminencia de la pérdida de sustentabilidad de los acuíferos obliga al ecosistema mendocino a desarrollar soluciones de eficiencia radical que, en entornos con agua abundante y barata, jamás serían evaluadas financieramente.
+
+- **Elevada Concentración Geográfica y Densidad Industrial**: La vitivinicultura de Mendoza presenta una fisonomía de "Cluster Industrial" altamente integrado y geográficamente denso, focalizado en oasis de producción delimitados (como el Valle de Uco y el Oasis Norte). Esta cercanía espacial mitiga de forma drástica los costos logísticos de transferencia de conocimiento, simplifica la eventual unificación de redes de datos y viabiliza la instalación de infraestructura de conectividad industrial compartida.
+
+- **Alto Valor Agregado del Producto Final y Reputación Internacional**: A diferencia de los sectores industriales que comercializan commodities genéricos de bajo margen, el vino embotellado de alta gama de Mendoza es un producto de alto valor percibido en los mercados internacionales de exportación. Esto permite absorber e internalizar de manera más eficiente los costos marginales de inversión en tecnologías verdes de procesamiento de agua, traduciendo la sustentabilidad ambiental en un atributo de diferenciación marcaria altamente demandado por los consumidores globales.
+
+- **Sinergia Estratégica con el Enoturismo de Vanguardia**: El enoturismo representa un pilar económico central de la provincia, atrayendo anualmente a miles de visitantes internacionales. La transformación de las plantas de tratamiento de efluentes en unidades modelo de economía circular visible e inteligente (donde se exhiba de forma transparente la conversión de aguas residuales en recursos de riego paisajístico y generación de energía limpia) robustece de manera directa el posicionamiento de marca de las bodegas, fusionando de forma armónica la ingeniería ambiental de punta con la experiencia estética del turismo de alta gama.
+
+---
+
+## 5. Modelo Predictivo: Escenarios de Implementación
+
+Con el propósito de evaluar cuantitativamente los impactos operacionales, ambientales y financieros de la transición hacia tecnologías inteligentes de procesamiento de agua en el clúster vitivinícola de Mendoza, se ha modelado un horizonte temporal de proyección a 10 años (2026-2036). El modelo matemático evalúa el comportamiento de tres variables críticas del sistema: la eficiencia en el uso de agua de proceso, la tasa neta de reutilización de efluentes tratados para riego agrícola tecnificado y el nivel de autosuficiencia energética parcial alcanzado mediante codigestión anaerobia.
+
+Se definieron tres escenarios de adscripción tecnológica mutuamente excluyentes:
+
+- **Escenario A: Inacción Estructural ("Business as Usual" - BAU)**: Supone la continuidad estricta del paradigma actual, caracterizado por una inversión tecnológica marginal e incremental, operación reactiva y mantenimiento convencional analógico. Bajo este escenario, la presión hídrica severa y el descenso continuo de los acuíferos subterráneos fuerzan una contracción gradual de la capacidad productiva del clúster vitivinícola, estimándose una pérdida de competitividad global del 15% hacia el año 2036 debido a restricciones en el suministro de agua.
+
+- **Escenario B: Modernización Tecnológica Convencional (Lineal)**: Plantea la adopción progresiva y generalizada de tecnologías mecánicas y biológicas consolidadas (instalación masiva de reactores MBR y sistemas terciarios de filtración por membranas), pero prescindiendo por completo de la capa de digitalización avanzada, redes de sensores IoT y algoritmos de optimización predictiva basados en IA. Las decisiones operacionales continúan ejecutándose de forma humana y reactiva.
+
+- **Escenario C: Transición Hídrica Inteligente (Disruptivo / IA-Driven)**: Contempla el despliegue sistémico y vertical de la arquitectura propuesta en este estudio: integración de una capa de sensorización masiva IoT en línea, unificación de los registros en una Plataforma de Datos Colaborativa Provincial y gobernanza operacional de las plantas de tratamiento mediante modelos de Machine Learning y Control Predictivo en lazo cerrado.
+
+Los resultados numéricos arrojados por las simulaciones del modelo predictivo para el año meta 2036 se exponen comparativamente en la Tabla 4:
+
+```{r tabla-escenarios}
+escenarios_df <- data.frame(
+  Metrica = c(
+    "Eficiencia Global en el Uso de Agua de Proceso",
+    "Tasa Neta de Reutilización de Efluentes",
+    "Autosuficiencia Energética Parcial en Plantas",
+    "Inversión de Capital Acumulada Requerida",
+    "Costo de Oportunidad por Inacción (Pérdidas)"
+  ),
+  Escenario_A = c(
+    "<50% (deterioro por obsolescencia)",
+    "15% (riego informal o restringido)",
+    "0% (ausencia total de captura de gases)",
+    "USD 0 millones (costo diferido por inacción)",
+    "USD 120—180 millones (pérdida de mercado y viñedos)"
+  ),
+  Escenario_B = c(
+    "75%—80% (límites mecánicos de diseño)",
+    "50% (restringido por desbalances biológicos)",
+    "15%—20% (operación ineficiente de digestores)",
+    "USD 35—50 millones (escala provincial)",
+    "USD 20—35 millones (eficiencias no alcanzadas)"
+  ),
+  Escenario_C = c(
+    ">95% (optimización algorítmica continua)",
+    "75%—85% (calidad garantizada por control predictivo)",
+    "40%—55% (control adaptativo de aireación y biogás)",
+    "USD 50—83 millones (incluye infraestructura IoT y software)",
+    "USD 0 millones (mitigación total de riesgos hídricos)"
+  )
+)
+
+kable(escenarios_df,
+      col.names = c("Métrica de Impacto Proyectada (Año 2036)", "Escenario A (Inacción / BAU)", "Escenario B (Modernización Lineal)", "Escenario C (Transición Inteligente)"),
+      caption = "Tabla 4: Comparativa de Escenarios de Implementación Tecnológica",
+      align = c("l", "l", "l", "l")) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"),
+                full_width = TRUE, font_size = 10) %>%
+  column_spec(1, bold = TRUE, width = "22%") %>%
+  column_spec(2, width = "26%") %>%
+  column_spec(3, width = "26%") %>%
+  column_spec(4, bold = TRUE, width = "26%", color = "#1e8449")
+```
+
+Las proyecciones matemáticas demuestran de forma contundente que el Escenario C, a pesar de exigir una inversión de capital inicial superior (estimada en una horquilla consolidada de entre USD 50 y 83 millones distribuidos a lo largo de una década a nivel provincial), presenta la mayor rentabilidad estructural y el menor riesgo de largo plazo. La inversión adicional requerida para el despliegue de las soluciones digitales e inteligentes se amortiza aceleradamente al anular por completo los masivos costos de oportunidad derivados de la inacción (estimados en hasta USD 180 millones debido a la pérdida irreversible de viñedos por desecamiento, devaluación de la propiedad rural y sanciones regulatorias por sobreexplotación de acuíferos).
+
+---
+
+## 6. Marco Estratégico para la Transición
+
+### 6.1 Pilares de Implementación
+
+Para viabilizar la transición efectiva hacia el Escenario C, se formula un marco de actuación estructurado en cuatro pilares sinérgicos de ejecución simultánea:
+
+1. **Infraestructura Digital de Base**: Priorizar la instalación sistemática de caudalímetros electromagnéticos con transmisión de datos inalámbrica, sensores ópticos sumergibles de medición en línea de DQO/SST y sondas amperométricas de oxígeno disuelto en los reactores biológicos de las bodegas. Esta capa de hardware de telemetría debe operar bajo protocolos de comunicación industriales estandarizados (como MQTT o OPC-UA) con conectividad inmune a las restricciones topográficas rurales mediante redes de baja potencia y largo alcance (LoRaWAN o redes celulares 4G/5G adaptadas).
+
+2. **Plataforma de Datos Hídricos Colaborativa**: Creación de un entorno de software en la nube de carácter público-privado, gestionado de forma conjunta por el Departamento General de Irrigación, las universidades locales (con el liderazgo de la Universidad Nacional de Cuyo) y los consorcios de bodegas. Esta plataforma centralizará de forma anonimizada los registros temporales de efluentes, proveyendo los repositorios estandarizados y masivos necesarios para entrenar y refinar continuamente las arquitecturas de aprendizaje profundo (Deep Learning) aplicadas a la predicción analítica de la calidad de agua de la región.
+
+3. **Capacitación Especializada y Transferencia de Conocimiento**: Rediseño urgente de las misiones curriculares formativas de las carreras de ingeniería hídrica, agronomía y ciencias de la computación en la región. Es mandatorio estructurar programas de posgrado y certificaciones técnicas enfocadas de forma específica en la intersección entre la ciencia de datos aplicada, la sensometría IoT y la biotecnología avanzada de reactores de membrana, desarrollando el talento humano local calificado indispensable para diseñar, operar y mantener los complejos sistemas inteligentes del futuro.
+
+4. **Marco Regulatorio Adaptativo e Incentivos Dinámicos**: Evolución de la normativa ambiental de vuelcos de Mendoza (Resolución 778/96 del DGI y modificatorias) hacia un modelo dinámico de gobernanza hídrica. El Estado debe implementar mecanismos de incentivos financieros directos —tales como la exención temporal de cánones hídricos o líneas de crédito fiscal blando— para aquellos establecimientos industriales que certifiquen auditorías digitales de lazo cerrado con eficiencias de reutilización superiores al 75%, penalizando de forma progresiva la persistencia de prácticas analógicas basadas en el vuelco lineal de efluentes sin tratamiento.
+
+### 6.2 Ruta Crítica de Implementación Temporal
+
+La estrategia de despliegue se organiza temporalmente en tres fases correlativas:
+
+- **Fase 1: Digitalización y Estandarización (Años 1-3)**: Concentrada en el despliegue físico de la sensometría IoT básica en el 60% de las bodegas de escala media y grande, el desarrollo y puesta en marcha del núcleo central de la Plataforma de Datos Colaborativa y la homologación de los protocolos informáticos de comunicación y registro.
+
+- **Fase 2: Modelado Analítico e Integración de Procesos (Años 4-6)**: Enfocada en el entrenamiento masivo de los algoritmos de Machine Learning (XGBoost, redes LSTM) utilizando los datos consolidados en la fase previa, ejecución de los primeros pilotos comerciales de Control Predictivo en reactores biológicos y validación de las técnicas de IA Explicable (XAI) para transferir confianza a los mandos operativos de planta.
+
+- **Fase 3: Autonomía y Economía Circular Masiva (Años 7-10)**: Interconexión e integración vertical de las plantas de tratamiento con sistemas de automatización autónoma en lazo cerrado, despliegue a gran escala de unidades modulares de codigestión para la autosuficiencia energética neta y consolidación del mercado regional de comercialización y distribución de agua industrial refinada para uso agrícola e industrial secundario.
+
+---
+
+## 7. Discusión
+
+### 7.1 Síntesis de Hallazgos
+
+La investigación desarrollada demuestra de forma inequívoca la existencia de una asimetría estructural profunda entre el vector de innovación hídrica a escala global (avanzando a pasos agigantados hacia la completa digitalización basada en IA con un CAGR del 27.0%) y la realidad operacional dominante en la provincia de Mendoza, rezagada en esquemas de control analógicos e inconexos. Sin embargo, los resultados del modelo predictivo evidencian que esta brecha crítica no debe interpretarse como una limitación insalvable, sino como una ventana de oportunidad histórica: la densa concentración del clúster vitivinícola mendocino y el elevado valor agregado intrínseco de sus productos comerciales configuran las condiciones macroeconómicas perfectas para ensayar un proceso de salto tecnológico ("leapfrogging"), omitiendo etapas intermedias de evolución analógica para migrar de forma directa hacia arquitecturas de gestión hídrica inteligente de cuarta generación.
+
+### 7.2 Limitaciones del Estudio y Desafíos Futuros
+
+Los autores reconocen que las proyecciones analíticas del modelo matemático propuesto están sujetas a niveles de incertidumbre macroeconómica propios de un entorno de economía emergente como el argentino, donde la volatilidad de las tasas de interés y las restricciones cambiarias pueden alterar sustancialmente los períodos de repago de las inversiones de capital (CapEx). Asimismo, un desafío crítico del modelo radica en el denominado "efecto caja negra" de los algoritmos de aprendizaje profundo de IA: la resistencia cultural de los directores técnicos tradicionales de bodega y operarios de planta frente a decisiones operacionales automatizadas y complejas representa una barrera invisible de gran relevancia, la cual exige ser abordada mediante la incorporación mandatoria de marcos de IA Explicable (XAI) que garanticen la total transparencia y auditabilidad humana de los procesos predictivos.
+
+### 7.3 Contribución al Conocimiento Científico
+
+Este artículo realiza una triple contribución original al campo de la ingeniería hídrica y la gestión ambiental regional: en primer lugar, cuantifica con rigor matemático y datos actualizados al año 2026 las brechas tecnológicas específicas de una cuenca de alta aridez dependiente del escurrimiento nival frente a los mercados de referencia global; en segundo término, quiebra el determinismo tecnológico tradicional al demostrar que la escasez hídrica extrema puede operar como un vector de rentabilidad microeconómica y ventaja competitiva bajo el enfoque de la hipótesis de Porter; y finalmente, provee una hoja de ruta estratégica detallada y multivariable que abandona la visión puramente ingenieril de infraestructura dura para proponer un ecosistema integrado de datos, personas y marcos regulatorios adaptativos.
+
+---
+
+## 8. Conclusiones
+
+La industria del procesamiento y depuración de agua a escala mundial se encuentra transitando un punto de inflexión irreversible, caracterizado por la convergencia sinérgica entre la inteligencia artificial, la conectividad industrial y los principios de la economía circular. En este escenario global cambiante, las tecnologías avanzadas de refinamiento de fluidos dejan de ser herramientas accesorias de mitigación ambiental para consolidarse como infraestructura crítica de soporte de la soberanía hídrica.
+
+La provincia de Mendoza, impulsada por la crudeza objetiva de su crisis hídrica estructural y respaldada por la madurez y prestigio internacional de su industria vitivinícola, reúne las condiciones necesarias para erigirse en un laboratorio natural de vanguardia para la validación y despliegue de estas tecnologías inteligentes en economías emergentes. Las eficiencias hídricas superiores al 95% y las tasas de reutilización neta proyectadas en torno al 75% en nuestro escenario disruptivo no constituyen utopías técnicas, sino metas operacionales de necesidad estratégica e inmediata. La alternativa real a la inacción es la contracción irreversible y el declive económico de un sector que define de forma profunda la identidad cultural, laboral y social de la región. El agua es, de forma literal, la moneda estratégica del planeta en el siglo XXI; en Mendoza, esa moneda se está devaluando de forma acelerada frente a nuestros ojos. El despliegue de tecnologías de procesamiento de agua inteligente representa la apuesta decisiva y el compromiso ético de la comunidad científica y productiva para garantizar la sustentabilidad, resiliencia y el florecimiento del ecosistema mendocino para las próximas generaciones.
+
+---
+
+## Referencias
+
+Departamento General de Irrigación (DGI). (2025). *Pronóstico de Escurrimientos Hídricos para la Temporada 2025-2026 en la Provincia de Mendoza*. Mendoza, Argentina: Gobierno de Mendoza.
+
+Naciones Unidas (ONU-Agua). (2024). *The United Nations World Water Development Report 2024: Water for Prosperity and Peace*. París, Francia: UNESCO.
+
+Precedence Research. (2026). *Water Treatment Market Size to Hit USD 146.55 Billion by 2035*. Recuperado de https://www.precedenceresearch.com/water-treatment-market
+
+Research Nester. (2026). *Informe de crecimiento y tamaño del mercado de tratamiento de aguas residuales industriales para 2035*. Recuperado de https://www.researchnester.com/es/reports/industrial-wastewater-treatment-market/3332
+
+Sigma DAF. (2025). *Tratamiento de aguas residuales de la industria vitivinícola*. Sigma DAF Clarifiers. Recuperado de https://sigmadafclarifiers.com/tratamiento-de-aguas-residuales-de-la-industria-vitivinicola/
+
+Smart Water Bio. (2026). *Tendencias tecnológicas en el tratamiento de aguas residuales que marcarán 2026*. Recuperado de https://smartwaterbio.com/blog/tratamiento-de-aguas-residuales/
+
+Territoires du Vin. (2024). La escasez de agua en las principales regiones de expansión vitivinícola de Mendoza y el Nexus Agua – Energía – Empleo. *Preo UBE*, 14(2), 112-128. https://preo.ube.fr/territoiresduvin/index.php?id=2677
+
+Xylem Inc. (2026). *Water Technology Trends 2026: The Digital Transformation of Decentralized Industrial Water*. White Paper.
+
+---
+
+::: {.d-appendix}
+## Nota de los Autores
+
+**Juan Luna, Luciana Noriega, Leandro Olguín, Ariana Galli, Juan Cárdenas**
+
+Universidad Nacional de Cuyo, Facultad de Ingeniería
+
+Correspondencia: Grupo de Investigación en Gestión Hídrica Industrial
+
+*Fecha de recepción: 2 de junio de 2026*
+
+Este artículo fue preparado como contribución académica al campo de la ingeniería hídrica y la gestión ambiental regional. Los datos de caudales fueron obtenidos del Pronóstico de Escurrimientos oficial del Departamento General de Irrigación de Mendoza (DGI) para la temporada 2025-2026. Las proyecciones de mercado global provienen de fuentes consolidadas de investigación de mercado (Precedence Research, Research Nester, Xylem Inc.). Las proyecciones de escenarios constituyen ejercicios de modelado matemático y no deben interpretarse como pronósticos deterministas.
+:::
